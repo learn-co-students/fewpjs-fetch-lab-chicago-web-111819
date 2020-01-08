@@ -7,24 +7,24 @@ function renderBooks(json) {
   })
 }
 
-function fetchBooks() {
-  fetch('https://anapioficeandfire.com/api/books')
-  .then(function(response) {
-    return response.json();
-  }).then(function(json) {
-    return renderBooks(json);
-  })
-}
-
 // function fetchBooks() {
-//   return fetch('https://anapioficeandfire.com/api/books')
-//     .then(resp => resp.json())
-//     .then(json => renderBooks(json));
+//   fetch('https://anapioficeandfire.com/api/books')
+//   .then(function(response) {
+//     return response.json();
+//   }).then(function(json) {
+//     return renderBooks(json);
+//   })
 // }
 
+function fetchBooks() {
+  return fetch('https://anapioficeandfire.com/api/books')
+    .then(resp => resp.json())
+    .then(json => renderBooks(json));
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-  setTimeout(() => fetchBooks(), 0);
-  // fetchBooks();
+  // setTimeout(()  => fetchBooks(), 0);
+  fetchBooks();
 })
 
 
